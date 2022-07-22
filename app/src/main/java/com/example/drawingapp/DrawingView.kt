@@ -1,5 +1,6 @@
 package com.example.drawingapp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
@@ -16,6 +17,8 @@ class DrawingView(context: Context, attrs: AttributeSet ) : View(context, attrs)
 
     private var myBrushSize: Float = 0f
     private var myColor = Color.BLACK
+
+    private var myDrawingPaths = ArrayList<CustomPath>()
 
     init {
         setUpDrawing()
@@ -42,18 +45,24 @@ class DrawingView(context: Context, attrs: AttributeSet ) : View(context, attrs)
         myCanvas = Canvas(myCanvasBitmap)
     }
 
-    // TODO: change Canvas to Canvas? in constructor if its fails
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         canvas?.drawBitmap(myCanvasBitmap,0f,0f,myCanvasPaint)
 
+        for (path in myDrawingPaths){
+            myDrawPaint.strokeWidth = path.brushTickness
+            myDrawPaint.color = path.color
+            canvas?.drawPath(path, myDrawPaint)
+        }
+
         myDrawPaint.strokeWidth = myDrawPath.brushTickness
         myDrawPaint.color = myDrawPath.color
-
         canvas?.drawPath(myDrawPath, myDrawPaint)
+
 
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
 
         val touchX = event?.x
@@ -72,6 +81,8 @@ class DrawingView(context: Context, attrs: AttributeSet ) : View(context, attrs)
             }
 
             MotionEvent.ACTION_UP ->{
+
+                myDrawingPaths.add(myDrawPath)
                 myDrawPath = CustomPath(myColor,myBrushSize)
             }
             else -> return false
