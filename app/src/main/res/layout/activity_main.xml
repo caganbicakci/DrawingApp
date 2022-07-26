@@ -14,19 +14,81 @@
         android:layout_height="0dp"
         android:layout_margin="5dp"
         android:background="@drawable/bg_drawing_view_layout"
-        app:layout_constraintBottom_toTopOf="@id/brush_ib"
+        app:layout_constraintBottom_toTopOf="@id/ll_select_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_select_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/drawing_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/brush_ib">
+
+        <ImageButton
+            style="@style/color_btn_style"
+            android:src="@drawable/pallet_normal"
+            android:tag="@color/skin"
+            android:background="@color/skin"/>
+
+        <ImageButton
+            style="@style/color_btn_style"
+            android:src="@drawable/pallet_normal"
+            android:tag="@color/black"
+            android:background="@color/black"/>
+
+        <ImageButton
+            style="@style/color_btn_style"
+            android:src="@drawable/pallet_normal"
+            android:tag="@color/red"
+            android:background="@color/red"/>
+
+        <ImageButton
+            style="@style/color_btn_style"
+            android:src="@drawable/pallet_normal"
+            android:tag="@color/green"
+            android:background="@color/green"/>
+
+        <ImageButton
+            style="@style/color_btn_style"
+            android:src="@drawable/pallet_normal"
+            android:tag="@color/blue"
+            android:background="@color/blue"/>
+
+        <ImageButton
+            style="@style/color_btn_style"
+            android:src="@drawable/pallet_normal"
+            android:tag="@color/yellow"
+            android:background="@color/yellow"/>
+
+        <ImageButton
+            style="@style/color_btn_style"
+            android:src="@drawable/pallet_normal"
+            android:tag="@color/purple"
+            android:background="@color/purple"/>
+
+        <ImageButton
+            style="@style/color_btn_style"
+            android:src="@drawable/pallet_normal"
+            android:tag="@color/white"
+            android:background="@color/white"/>
+
+
+
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/brush_ib"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="5dp"
-        android:layout_marginBottom="40dp"
         android:scaleType="fitXY"
         android:src="@drawable/ic_baseline_brush_24"
+        app:layout_constraintTop_toBottomOf="@id/ll_select_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
