@@ -22,9 +22,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var currentPaintImageButton: ImageButton
-    private lateinit var selectedImage: Image
 
-    val openGalleryLauncher: ActivityResultLauncher<Intent> =
+    private val openGalleryLauncher: ActivityResultLauncher<Intent> =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK && result.data != null) {
                 binding.ivBackground.setImageURI(result.data?.data)
@@ -84,6 +83,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.imagePickerIb.setOnClickListener {
             requestStoragePermission()
+        }
+
+        binding.undoBtn.setOnClickListener {
+            binding.drawingView.undoPaint()
         }
 
     }
