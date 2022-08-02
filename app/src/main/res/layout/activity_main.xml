@@ -23,8 +23,7 @@
             android:id="@+id/iv_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/eiffel_tower" />
+            android:scaleType="centerCrop" />
 
         <com.example.drawingapp.DrawingView
             android:id="@+id/drawing_view"
@@ -121,6 +120,12 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_baseline_image_24" />
+
+        <ImageButton
+            android:id="@+id/save_image_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_save_24" />
 
 
     </LinearLayout>
