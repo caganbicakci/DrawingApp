@@ -8,9 +8,8 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
-import android.media.Image
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
@@ -18,6 +17,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
@@ -29,6 +29,7 @@ import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -225,10 +226,12 @@ class MainActivity : AppCompatActivity() {
                     val bytes = ByteArrayOutputStream()
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 80, bytes)
 
-                    val file = File(
-                        externalCacheDir?.absoluteFile.toString()
-                                + File.separator + "drawingapp" + System.currentTimeMillis() / 1000 + ".png"
-                    )
+
+                    val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)?.absoluteFile.toString()+
+                            File.separator + "DrawingApp" + System.currentTimeMillis() / 1000 + ".png"
+
+                    val file = File(dir)
+
 
                     val fileOutput = FileOutputStream(file)
 
