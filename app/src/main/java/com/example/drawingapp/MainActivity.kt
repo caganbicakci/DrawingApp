@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
 
             if(isReadStorageAllowed()){
                 lifecycleScope.launch {
-                    getBitmapFromView(binding.drawingView)
+                    saveBitmapFile(getBitmapFromView(binding.flContainer))
                 }
             }
         }
