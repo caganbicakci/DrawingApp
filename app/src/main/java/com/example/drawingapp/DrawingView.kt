@@ -89,6 +89,7 @@ class DrawingView(context: Context, attrs: AttributeSet ) : View(context, attrs)
             }
 
             invalidate()
+
             return true
     }
 
@@ -99,6 +100,20 @@ class DrawingView(context: Context, attrs: AttributeSet ) : View(context, attrs)
             resources.displayMetrics)
 
         myDrawPaint.strokeWidth = myBrushSize
+    }
+
+    fun setColor(newColor: String){
+        myColor = Color.parseColor(newColor)
+        myDrawPaint.color = myColor
+    }
+
+    fun undoPaint(){
+        if(myDrawingPaths.isNotEmpty()){
+            myDrawingPaths.removeLast()
+
+            //for showing results immediately use invalidate() same as adding drawing
+            invalidate()
+        }
     }
 
     inner class CustomPath(var color: Int, var brushThickness: Float) : Path()

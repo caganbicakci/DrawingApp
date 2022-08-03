@@ -4,7 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/drawable/bg_drawing_view_layout.xml" value="0.1725" />
-        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/layout/activity_main.xml" value="0.3564102564102564" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/drawable/ic_baseline_brush_24.xml" value="0.176" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.157" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.14" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/drawable/ic_baseline_undo_24.xml" value="0.259" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/drawable/large_brush_icon.xml" value="0.1725" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/drawable/medium_brush_icon.xml" value="0.1725" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/drawable/pallet_normal.xml" value="0.176" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/drawable/pallet_pressed.xml" value="0.176" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/drawable/small_brush_icon.xml" value="0.1725" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/layout/brush_size_dialog.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/layout/custom_progress_dialog.xml" value="0.75" />
+        <entry key="..\:/Users/caganbicakci/AndroidStudioProjects/DrawingApp/app/src/main/res/xml/path.xml" value="0.30648148148148147" />
       </map>
     </option>
   </component>
