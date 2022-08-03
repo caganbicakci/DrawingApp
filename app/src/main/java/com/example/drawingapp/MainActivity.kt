@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.media.MediaScannerConnection
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -249,6 +250,7 @@ class MainActivity : AppCompatActivity() {
                                 "File saved Succesfully: $result",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            shareDrawing(result)
                         } else {
                             Toast.makeText(
                                 this@MainActivity,
@@ -271,6 +273,19 @@ class MainActivity : AppCompatActivity() {
         customProgressDialog = Dialog(this)
         customProgressDialog.setContentView(R.layout.custom_progress_dialog)
         customProgressDialog.show()
+    }
+
+    private fun shareDrawing(imagePath: String) {
+        MediaScannerConnection.scanFile(this, arrayOf(imagePath), null){
+            path,uri, ->
+            val shareIntent = Intent()
+            shareIntent.action = Intent.ACTION_SEND
+            shareIntent.putExtra(Intent.EXTRA_STREAM, uri)
+            shareIntent.type = "image/png"
+            startActivity(Intent.createChooser(shareIntent, "Share"))
+
+        }
+
     }
 
 }
