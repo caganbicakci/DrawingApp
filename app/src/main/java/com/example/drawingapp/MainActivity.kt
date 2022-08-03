@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var currentPaintImageButton: ImageButton
+    private lateinit var customProgressDialog: Dialog
 
     private val openGalleryLauncher: ActivityResultLauncher<Intent> =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -104,7 +105,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.saveImageBtn.setOnClickListener {
 
-            if(isReadStorageAllowed()){
+            if (isReadStorageAllowed()) {
+                showProgressDialog()
                 lifecycleScope.launch {
                     saveBitmapFile(getBitmapFromView(binding.flContainer))
                 }
@@ -189,8 +191,6 @@ class MainActivity : AppCompatActivity() {
                 (arrayOf(
                     Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
-
-                    // TODO: Add writing external storage permission
                 ))
             )
         }
@@ -227,8 +227,9 @@ class MainActivity : AppCompatActivity() {
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 80, bytes)
 
 
-                    val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)?.absoluteFile.toString()+
-                            File.separator + "DrawingApp" + System.currentTimeMillis() / 1000 + ".png"
+                    val dir =
+                        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)?.absoluteFile.toString() +
+                                File.separator + "DrawingApp" + System.currentTimeMillis() / 1000 + ".png"
 
                     val file = File(dir)
 
@@ -242,6 +243,7 @@ class MainActivity : AppCompatActivity() {
 
                     runOnUiThread {
                         if (result.isNotEmpty()) {
+                            customProgressDialog.dismiss()
                             Toast.makeText(
                                 this@MainActivity,
                                 "File saved Succesfully: $result",
@@ -263,6 +265,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         return result
+    }
+
+    private fun showProgressDialog() {
+        customProgressDialog = Dialog(this)
+        customProgressDialog.setContentView(R.layout.custom_progress_dialog)
+        customProgressDialog.show()
     }
 
 }
